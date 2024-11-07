@@ -1,1 +1,1 @@
-# GraphFourierTransform
+# Graph Fourier Transform
