@@ -6,7 +6,7 @@ outputFolder = '/Users/aditisaxena/Documents/coursework/Digital Signal Processin
 % Locate all .set files in the extracted dataset
 disp('Searching for .set files...');
 setFiles = dir(fullfile(dataFolder, 'sub-*', 'eeg', '*.set'));
-disp(['Found ', num2str(length(setFiles)), ' .set files.']); % should be 88 
+disp(['Found ', num2str(length(setFiles) ), ' .set files.']); % should be 88 
 
 %% Initialize EEGLAB
 eeglab;

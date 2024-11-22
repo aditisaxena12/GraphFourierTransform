@@ -1,4 +1,4 @@
-function L = data_to_laplcian()
+function [X,W,L] = graph_construction()
 
 % Step 1 - Load data and make it into a matrix
 X = create_EEGmatrix();
