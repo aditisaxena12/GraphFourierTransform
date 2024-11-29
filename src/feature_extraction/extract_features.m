@@ -1,16 +1,20 @@
 addpath('/Users/aditisaxena/Documents/coursework/Digital Signal Processing/Project/GFT/GraphFourierTransform/data_preprocessing')
 addpath('/Users/aditisaxena/Documents/coursework/Digital Signal Processing/Project/GFT/GraphFourierTransform/graph_construction')
+file = '/Users/aditisaxena/Documents/coursework/Digital Signal Processing/Project/GFT/GraphFourierTransform/data/ProcessedMATFiles/sub-001_task-eyesclosed_eeg.mat';
+k = 5;
 
-X,W,L = graph_construction();
+
+[X,W,L] = graph_construction(file);
+D = diag(sum(W, 2));
 
 % Compute GDFT
-X_GDFT,U = calclate_gft(L, X);
+[X_GDFT,U] = calculate_gft(L, X);
 
 % Compute Stationary Ratio
-stationary_ratio = calculate_stationary_ratio(L, X_GDFT);
+stationary_ratio = calculate_stationaryRatio(L, X_GDFT);
 
 % Compute TikNorm
-tiknorm = calculate_tiknorm(L, X);
+tiknorm = calculate_tikNorm(L, X);
 
 % Compute Total Variation
 tv = calculate_totalVariation(X, W);
@@ -28,7 +32,7 @@ beta = calculate_signalEnergy(X);
 sigma_square = calculate_SignalPower(X);
 
 % Compute Unique Spectral Cluster Labels
-gamma = calculate_unique_spectral_cluster_labels(L,k);
+gamma = calculate_spectralClusterLabels(L,k);
 
 % Compute Average Degree
 mu_D = calculate_averageDegree(D);

@@ -1,4 +1,4 @@
-function DiffusionDistance = calculate_Diffusion_Distance(L)
+function h_prime = calculate_diffusionDistance(L)
     % Diffusion Distance (h')
     % Inputs:
     %   L - Laplacian Matrix

@@ -7,9 +7,19 @@ function [X_GDFT, U] = calculate_gft(L, X)
     %   X_GDFT - GDFT of the data matrix
     %   U      - Eigenvectors matrix
     
-    % Eigen decomposition of L
-    [U, ~] = eig(L); % U: eigenvectors, ~: eigenvalues (not used)
-    
+    % Ensure L is symmetric and numeric
+    if ~ismatrix(L) || ~isnumeric(L)
+        error('L must be a numeric Laplacian matrix.');
+    end
+
+    % Eigen decomposition
+    [U, ~] = eig(L);
+
+    % Ensure X is numeric
+    if ~ismatrix(X) || ~isnumeric(X)
+        error('X must be a numeric data matrix.');
+    end
+
     % Compute GDFT
     X_GDFT = U' * X; % U^T * X
 end

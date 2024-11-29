@@ -1,4 +1,4 @@
-function Heat_trace = calculate_HeatTrace(L)
+function h = calculate_heatTrace(L)
     % Heat_trace (h)
     % Inputs:
     %   L - Laplacian Matrix
@@ -9,8 +9,8 @@ function Heat_trace = calculate_HeatTrace(L)
     L_modified = exp(-L);
 
     % Heat Trace 
-    h = trace(L_modified)
+    h = trace(L_modified);
 
     %disp(['Heat Trace (h) =',num2str(h)]);
 end
-calculate_HeatTrace([1, 2, 3; 4, 5, 6; 7, 8, 9]); %Example to check
+%calculate_HeatTrace([1, 2, 3; 4, 5, 6; 7, 8, 9]); %Example to check

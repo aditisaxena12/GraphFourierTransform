@@ -1,4 +1,4 @@
-function Avg_Degree  = calculate_avgDegree(D)
+function mu_D  = calculate_averageDegree(D)
     % Average Degree of Graph (mu_D)
     % Inputs:
     %   D - Diagonal Degree Matrix

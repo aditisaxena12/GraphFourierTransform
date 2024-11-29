@@ -1,4 +1,4 @@
-function Spectral_cluster_labels = calculate_Unique_Spectral_Cluster_Labels(L,k)
+function gamma = calculate_spectralClusterLabels(L,k)
     % Unique Spectral Cluster Labels
     % Inputs:
     %   L - Laplacian Matrix
@@ -19,7 +19,7 @@ function Spectral_cluster_labels = calculate_Unique_Spectral_Cluster_Labels(L,k)
     gamma = numel(unique(labels));
 
 
-    %disp(['Cluster Labels: ', mat2str(labels)]);
-    %disp(['Unique Spectral Cluster Labels (γ): ', num2str(gamma)]);
+    disp(['Cluster Labels: ', mat2str(labels)]);
+    disp(['Unique Spectral Cluster Labels (γ): ', num2str(gamma)]);
 end
 %calculate_Unique_Spectral_Cluster_Labels([1, 2, 3; 4, 5, 6; 7, 8, 9],2); %Example to check
