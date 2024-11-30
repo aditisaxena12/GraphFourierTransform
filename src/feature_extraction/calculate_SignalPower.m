@@ -1,4 +1,4 @@
-function Power  = calculate_signalpower(X)
+function Power  = calculate_signalPower(X)
     % Signal Power (Sigma^2) = Var(X)
     % Inputs:
     %   X - EEG Signal Matrix of a participant
