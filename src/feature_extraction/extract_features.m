@@ -92,18 +92,20 @@ for i = 1:height(participants)
     end
 end
 
-feature_matrix = [feature_matrix, labels_array];
-
-% Generate a random permutation of row indices
-perm = randperm(num_participants);
-
-% Shuffle rows using the permutation
-feature_shuffled = feature_matrix(perm, :);
 
 % Save feature matrix to a file
 output_file = fullfile(base_dir,'data','feature_matrix.mat');
-save(output_file, 'feature_shuffled');
+save(output_file, 'feature_matrix');
 
 % Display completion message
 disp('Feature extraction completed. Features saved to:');
 disp(output_file);
+
+% Save labels matrix to a file
+output_labels = fullfile(base_dir,'data','labels_array.mat');
+save(output_labels, 'labels_array');
+
+% Display completion message
+disp('Labels extraction completed. Labels saved to:');
+disp(output_labels);
+
