@@ -1,4 +1,4 @@
-function accuracy = logistic_regression_classifier()
+function [accuracy, precision, recall, f1_score] = logistic_regression_classifier()
     [X_train, X_test, y_train, y_test] = split_data();
      % Train logistic regression model
     % MATLAB expects labels to be categorical for multinomial regression
@@ -11,6 +11,9 @@ function accuracy = logistic_regression_classifier()
     % Determine predicted labels
     [~, y_pred] = max(y_pred_probs, [], 2);
 
-    % Calculate accuracy
-    accuracy = sum(y_pred == y_test) / length(y_test);
+    % Calculate confusion matrix
+    conf_matrix = confusionmat(y_test, y_pred);
+    
+    % Calculate metrics
+    [accuracy, precision, recall, f1_score] = calculate_metrics(conf_matrix);
 end

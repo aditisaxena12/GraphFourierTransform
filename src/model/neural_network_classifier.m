@@ -1,4 +1,4 @@
-function accuracy = neural_network_classifier()
+function [accuracy, precision, recall, f1_score] = neural_network_classifier()
     % NEURAL_NETWORK_CLASSIFIER - Train and evaluate a neural network for classification.
     %
     % Inputs:
@@ -37,6 +37,9 @@ function accuracy = neural_network_classifier()
     y_pred_probs = net(X_test'); % Network output probabilities
     [~, y_pred] = max(y_pred_probs', [], 2); % Predicted class labels
 
-    % Calculate accuracy
-    accuracy = sum(y_pred == y_test) / length(y_test);
+    % Calculate confusion matrix
+    conf_matrix = confusionmat(y_test, y_pred);
+    
+    % Calculate metrics
+    [accuracy, precision, recall, f1_score] = calculate_metrics(conf_matrix);
 end

@@ -1,5 +1,6 @@
 #ignore data files
 
+data/Data-ADNI
 data/Data-OpenNeuro
 data/Data-QuantileGraph
 data/ProcessedMATFiles

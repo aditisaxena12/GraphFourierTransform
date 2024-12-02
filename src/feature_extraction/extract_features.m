@@ -26,6 +26,9 @@ labels_array = zeros(num_participants, 1);
 num_features = 11; % Adjust based on features being computed
 feature_matrix = zeros(num_participants, num_features);
 
+% Initialize a structure to store features
+features_struct = struct();
+
 % Loop through each EEG file and compute features
 for i = 1:height(participants)
     % Load the EEG file
@@ -82,6 +85,19 @@ for i = 1:height(participants)
         mu_D, h, h_prime
     ];
 
+    features_struct(i).stationary_ratio = stationary_ratio;
+    features_struct(i).tiknorm = tiknorm;
+    features_struct(i).total_variation = tv;
+    features_struct(i).graph_energy = energy;
+    features_struct(i).spectral_entropy = H;
+    features_struct(i).signal_energy = beta;
+    features_struct(i).signal_power = sigma_square;
+    features_struct(i).spectral_cluster_labels = gamma;
+    features_struct(i).average_degree = mu_D;
+    features_struct(i).heat_trace = h;
+    features_struct(i).diffusion_distance = h_prime;
+    features_struct(i).group = participants.Group{i};
+
     switch participants.Group{i}
         case 'A'
             labels_array(i) = 0; % Alzheimer's
@@ -96,6 +112,10 @@ end
 % Save feature matrix to a file
 output_file = fullfile(base_dir,'data','feature_matrix.mat');
 save(output_file, 'feature_matrix');
+
+% Save the structure to a .mat file
+output_features_file = fullfile(base_dir, 'data', 'features_struct.mat');
+save(output_features_file, 'features_struct');
 
 % Display completion message
 disp('Feature extraction completed. Features saved to:');
