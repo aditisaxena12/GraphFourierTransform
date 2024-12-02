@@ -1,4 +1,4 @@
-# Graph Fourier Transform Project
+# Graph Fourier Transform 
 
 This repository demonstrates a workflow for analyzing EEG data using Graph Fourier Transform (GFT). Below are the steps to reproduce the results.
 
